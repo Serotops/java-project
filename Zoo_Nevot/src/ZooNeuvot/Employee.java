@@ -8,12 +8,13 @@ public class Employee
 	
 	/* Constructeurs */
 	
-	public Employee() 
+	public Employee(String name, String sex, int age) 
 	{
-		this.name = "Jean-Michel";
-		this.sex = "Homme";
-		this.age = 134;
+		this.name = name;
+		this.sex = sex;
+		this.age = age;
 	}
+
 
 	/* Methodes */
 	
@@ -25,7 +26,19 @@ public class Employee
 	
 	public String CheckEnclosure(Enclosure pEnclos)
 	{
+		return pEnclos.toString();
+	}
+	
+	public String CleanEnclosure(Enclosure pEnclos)
+	{
+		String vRet = "Enclos deja propre";
 		
+		if(pEnclos.BeCleanable())
+		{
+			pEnclos.setClean("Bon");
+			vRet = "Enclos nettoyé";
+		}
+		return vRet;
 	}
 	
 }

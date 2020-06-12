@@ -2,19 +2,29 @@ package ZooNeuvot;
 
 public class Animal 
 {
-	private String name;		// Nom de l'espèce
-	private String sex;			// Sexe "Male" ou "Female"
-	private double weight;		// Poids en Kg
-	private double size;		// Taille en cm
-	private int age;			// Age de l'animal
-	private boolean hungerIndicator = true; // Indicateur de faim - true (a faim) false (n'a pas faim)
-	private boolean sleepingIndicator = false; // Indicateur de sommeil - true (il dort) false (il ne dort pas)
-	private boolean healthIndicator; // Indicateur de santé - true (en bonne santé) false (en mauvaise santé)
+	private String name;				// Nom de l'espèce
+	private String sex;					// Sexe "Male" ou "Femelle"
+	private double weight;				// Poids en Kg
+	private double size;				// Taille en cm
+	private int age;					// Age de l'animal
+	private boolean hungerIndicator; 	// Indicateur de faim - true (a faim) false (n'a pas faim)
+	private boolean sleepingIndicator; 	// Indicateur de sommeil - true (il dort) false (il ne dort pas)
+	private boolean healthIndicator; 	// Indicateur de santé - true (en bonne santé) false (en mauvaise santé)
+
 	
-	
-	// ET MANGE MOI LA TEUB BILOUUUUUUUUUUUUUUUUUUUUUUUUUU 
-	
-	
+	// Constructeur
+	public Animal(String name, String sex, double weight, double size, int age) 
+	{
+		this.name = name;
+		this.sex = sex;
+		this.weight = weight;
+		this.size = size;
+		this.age = age;
+		this.hungerIndicator = false;
+		this.sleepingIndicator = false;
+		this.healthIndicator = false;
+	}
+
 	// Retourne 1 pour le bon endormissement de l'animal, retourne 0 si l'animal dort déjà
 	public int sleeping() {
 		if (this.sleepingIndicator == false) {
@@ -67,7 +77,7 @@ public class Animal
 
 	@Override
 	public String toString() {
-		return "Animal [name=" + name + ", sex=" + sex + ", weight=" + weight + ", size=" + size + ", age=" + age
+		return "Animal : [name=" + name + ", sex=" + sex + ", weight=" + weight + ", size=" + size + ", age=" + age
 				+ ", hungerIndicator=" + hungerIndicator + ", sleepingIndicator=" + sleepingIndicator
 				+ ", healthIndicator=" + healthIndicator + "]";
 	}
