@@ -25,7 +25,7 @@ public class Animal
 	
 	public String makingSound()
 	{
-		return "agrou agrou agrou";
+		return "agrou agrou agrou oui";
 	}
 
 	// Retourne 0 si l'animal n'a pas faim, retourne 1 si l'animal a bien manger
@@ -56,7 +56,7 @@ public class Animal
 			return 0;
 		}
 		else {
-			this.healthIndicator == true;
+			this.healthIndicator = true;
 			return 1;
 		}
 	}
