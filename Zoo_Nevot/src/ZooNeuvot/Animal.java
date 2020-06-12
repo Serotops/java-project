@@ -11,6 +11,10 @@ public class Animal
 	private boolean sleepingIndicator = false; // Indicateur de sommeil - true (il dort) false (il ne dort pas)
 	private boolean healthIndicator; // Indicateur de santé - true (en bonne santé) false (en mauvaise santé)
 	
+	
+	// ET MANGE MOI LA TEUB BILOUUUUUUUUUUUUUUUUUUUUUUUUUU 
+	
+	
 	// Retourne 1 pour le bon endormissement de l'animal, retourne 0 si l'animal dort déjà
 	public int sleeping() {
 		if (this.sleepingIndicator == false) {
@@ -60,4 +64,12 @@ public class Animal
 			return 1;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Animal [name=" + name + ", sex=" + sex + ", weight=" + weight + ", size=" + size + ", age=" + age
+				+ ", hungerIndicator=" + hungerIndicator + ", sleepingIndicator=" + sleepingIndicator
+				+ ", healthIndicator=" + healthIndicator + "]";
+	}
+	
 }
