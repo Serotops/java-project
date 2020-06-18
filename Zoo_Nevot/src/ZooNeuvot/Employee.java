@@ -15,7 +15,6 @@ public class Employee
 		this.age = age;
 	}
 
-
 	/* Methodes */
 	
 	@Override
@@ -35,9 +34,47 @@ public class Employee
 		
 		if(pEnclos.BeCleanable())
 		{
-			pEnclos.setClean("Bon");
-			vRet = "Enclos nettoyé";
+			switch(pEnclos.getClass().toString())
+			{
+				case "class ZooNeuvot.Aquarium" :
+					pEnclos.setClean("Bon");
+					((Aquarium) pEnclos).setSalinity(true);
+					vRet = "Aquarium nettoyé, salinité de l'eau ok";
+					break;
+					
+				case "class ZooNeuvot.Voliere" : 
+					pEnclos.setClean("Bon");
+					vRet = "Cage et son toit néttoyé";
+					break;
+			
+				default : 
+					pEnclos.setClean("Bon");
+					vRet = "Enclos nettoyé";
+			}
 		}
+		return vRet;
+	}
+	
+	public String FeedInEnclos(Enclosure pEnclos)
+	{
+		String vRet = "";
+		
+		for(Animal Ani : pEnclos.getAnimals())
+		{
+			if(Ani.beFed())
+			{
+				Ani.setHungerIndicator(false);
+				vRet += Ani.getName() + " nourri, ";
+			}
+			else
+				vRet = "Tous les animaux sont déjà nourris";
+		}
+		return vRet;
+	}
+	
+	public String TransferAnimal(Enclosure pEnclosOrigin, Enclosure pNextEnclos, Animal pAnimal)
+	{
+		String vRet = "";
 		return vRet;
 	}
 	

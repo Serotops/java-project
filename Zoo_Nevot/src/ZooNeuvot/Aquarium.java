@@ -13,5 +13,31 @@ public class Aquarium extends Enclosure
 		this.deep = deep;
 		this.salinity = salinity;
 	}
+	
+	@Override
+	public boolean BeCleanable() 
+	{
+		return super.BeCleanable();
+	}
+
+	public double getDeep() 
+	{
+		return deep;
+	}
+
+	public void setDeep(double deep) 
+	{
+		this.deep = deep;
+	}
+
+	public boolean isSalinity() 
+	{
+		return salinity;
+	}
+
+	public void setSalinity(boolean salinity) 
+	{
+		this.salinity = salinity;
+	}
 
 }

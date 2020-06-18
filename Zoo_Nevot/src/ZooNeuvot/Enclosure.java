@@ -24,10 +24,10 @@ public class Enclosure
 	{
 		String vRet = "Enclos déjà plein";
 		
-		if(this.animals.size()<this.ani_max)
+		if(isFull())
 		{
 			this.animals.add(pAnimal);
-			vRet = "Animal ajouté";
+			vRet = pAnimal.getName() + " ajouté à l'enclos " + this.name;
 		}
 		return vRet;
 	}
@@ -37,7 +37,7 @@ public class Enclosure
 	{
 		String vRet = "Cet animal n'est pas présent dans l'enclos";
 		
-		if(this.animals.contains(pAnimal))
+		if(ContainAnimal(pAnimal))
 		{
 			this.animals.remove(pAnimal);
 			vRet = "Animal retiré de l'enclos";
@@ -53,6 +53,26 @@ public class Enclosure
 		if(!"Bon".equals(this.clean))
 			vRet = true;
 
+		return vRet;
+	}
+	
+	public boolean ContainAnimal(Animal pAni)
+	{
+		boolean vRet = false;
+		
+		if(this.animals.contains(pAni))
+			vRet = true;
+		
+		return vRet;
+	}
+	
+	public boolean isFull()
+	{
+		boolean vRet = false;
+		
+		if(this.animals.size()>=this.ani_max)
+			vRet = true;
+		
 		return vRet;
 	}
 	

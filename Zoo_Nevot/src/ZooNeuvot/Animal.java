@@ -1,6 +1,6 @@
 package ZooNeuvot;
 
-public class Animal 
+public abstract class Animal 
 {
 	private String name;				// Nom de l'espèce
 	private String sex;					// Sexe "Male" ou "Femelle"
@@ -12,7 +12,8 @@ public class Animal
 	private boolean healthIndicator; 	// Indicateur de santé - true (en bonne santé) false (en mauvaise santé)
 
 	
-	// Constructeur
+	/* Constructeurs */ 
+	
 	public Animal(String name, String sex, double weight, double size, int age) 
 	{
 		this.name = name;
@@ -24,62 +25,131 @@ public class Animal
 		this.sleepingIndicator = false;
 		this.healthIndicator = false;
 	}
-
-	// Retourne 1 pour le bon endormissement de l'animal, retourne 0 si l'animal dort déjà
-	public int sleeping() {
-		if (this.sleepingIndicator == false) {
-			this.sleepingIndicator = true;
-		}
-		else {
-			return 0;
-		}
-		
-		return 1;
-	}
 	
-	public String makingSound()
+	/* Methodes */
+	
+	public String toSleep()
 	{
-		return "agrou agrou agrou oui";
-	}
-
-	// Retourne 0 si l'animal n'a pas faim, retourne 1 si l'animal a bien manger
-	public int eat() {
-		if (this.sleepingIndicator == true) {
-			return 0;
+		String vRet = "L'animal dort deja";
+		
+		if(!this.sleepingIndicator)
+		{
+			this.sleepingIndicator = true;
+			vRet = "Animal endormi";
 		}
-		else {
-			this.hungerIndicator = false;
-			return 1;
-		}
+		return vRet;
 	}
 	
-	// Retourne 0 si l'animal est déjà réveillé, retourne 1 si l'animal s'est bien réveillé
-	public int wakingUp() {
-		if (this.sleepingIndicator == false) {
-			return 0;
-		}
-		else {
+	public String WakingUp() 
+	{
+		String vRet = "L'animal est déja réveillé";
+		
+		if(this.sleepingIndicator)
+		{
 			this.sleepingIndicator = false;
-			return 1;
+			vRet = "Animal réveillé";
 		}
-	}
-	
-	// Retourne 0 si l'animal est déjà en bonne santé, retourne 1 si l'animal a correctement été soigné
-	public int heal() {
-		if (this.healthIndicator == true) {
-			return 0;
-		}
-		else {
-			this.healthIndicator = true;
-			return 1;
-		}
+		return vRet;
 	}
 
+	// Retourn vrai si l'animal peut etre nourri
+	public boolean beFed() 
+	{
+		boolean vRet = false;
+		
+		if((this.hungerIndicator) && (!this.sleepingIndicator))
+			vRet = true;
+		
+		return vRet;
+	}
+	
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "Animal : [name=" + name + ", sex=" + sex + ", weight=" + weight + ", size=" + size + ", age=" + age
 				+ ", hungerIndicator=" + hungerIndicator + ", sleepingIndicator=" + sleepingIndicator
 				+ ", healthIndicator=" + healthIndicator + "]";
 	}
 	
+	/* Accesseurs */
+
+	public String getName() 
+	{
+		return name;
+	}
+
+	public void setName(String name) 
+	{
+		this.name = name;
+	}
+
+	public String getSex() 
+	{
+		return sex;
+	}
+
+	public void setSex(String sex) 
+	{
+		this.sex = sex;
+	}
+
+	public double getWeight() 
+	{
+		return weight;
+	}
+
+	public void setWeight(double weight) 
+	{
+		this.weight = weight;
+	}
+
+	public double getSize() 
+	{
+		return size;
+	}
+
+	public void setSize(double size) 
+	{
+		this.size = size;
+	}
+
+	public int getAge() 
+	{
+		return age;
+	}
+
+	public void setAge(int age) 
+	{
+		this.age = age;
+	}
+
+	public boolean isHungerIndicator() 
+	{
+		return hungerIndicator;
+	}
+
+	public void setHungerIndicator(boolean hungerIndicator) 
+	{
+		this.hungerIndicator = hungerIndicator;
+	}
+
+	public boolean isSleepingIndicator() 
+	{
+		return sleepingIndicator;
+	}
+
+	public void setSleepingIndicator(boolean sleepingIndicator) 
+	{
+		this.sleepingIndicator = sleepingIndicator;
+	}
+
+	public boolean isHealthIndicator() 
+	{
+		return healthIndicator;
+	}
+
+	public void setHealthIndicator(boolean healthIndicator) 
+	{
+		this.healthIndicator = healthIndicator;
+	}
 }
