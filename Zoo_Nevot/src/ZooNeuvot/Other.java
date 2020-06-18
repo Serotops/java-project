@@ -1,8 +1,8 @@
 package ZooNeuvot;
 
-public interface Mammifere 
+public interface Other 
 {
-	public default boolean CanGiveBirth(Animal pAni)
+	public default boolean CanLayEgg(Animal pAni)
 	{
 		boolean vRet = false;
 		

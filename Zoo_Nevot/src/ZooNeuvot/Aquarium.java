@@ -1,9 +1,12 @@
 package ZooNeuvot;
 
+import java.util.ArrayList;
+
 public class Aquarium extends Enclosure 
 {
 	private double deep; 		// Profondeur du bassin en mètre
 	private boolean salinity; 	// Salinité de l'eau : True = Bonne / False : A rectifier
+	private ArrayList<Marine> AniMarins = new ArrayList<>();
 	
 	/* Constructeurs */
 	
@@ -14,10 +17,24 @@ public class Aquarium extends Enclosure
 		this.salinity = salinity;
 	}
 	
+	/* Methodes */
+	
+
+	
 	@Override
 	public boolean BeCleanable() 
 	{
 		return super.BeCleanable();
+	}
+
+	public String AddAnimal(Marine pMarin) 
+	{
+		return super.AddAnimal(pMarin);
+	}
+
+	public boolean ContainAnimal(Marine pMarin) 
+	{
+		return super.ContainAnimal(pMarin);
 	}
 
 	public double getDeep() 

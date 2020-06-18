@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Enclosure
 {
-	private String name;										// Nom de l'enclos
-	private int area;											// Superficie en m²
-	private int ani_max;										// Capacité maximum en animaux 
-	private String clean;										// Degre de propreté : "Mauvais", "Correct" ou "Bon"
-	private ArrayList<Animal> animals = new ArrayList<Animal>();// Liste des animaux présents dans l'enclos
+	private String name;											// Nom de l'enclos
+	private int area;												// Superficie en m²
+	private int ani_max;											// Capacité maximum en animaux 
+	private String clean;											// Degre de propreté : "Mauvais", "Correct" ou "Bon"
+	private ArrayList<Animal> animals = new ArrayList<>();			// Liste des animaux présents dans l'enclos
 	
 	/* Methodes */
 	
@@ -24,10 +24,26 @@ public class Enclosure
 	{
 		String vRet = "Enclos déjà plein";
 		
-		if(isFull())
+		if(!isFull())
 		{
-			this.animals.add(pAnimal);
-			vRet = pAnimal.getName() + " ajouté à l'enclos " + this.name;
+			if(isEmpty())
+			{
+				this.animals.add(pAnimal);
+				vRet = pAnimal.getName() + " ajouté à l'enclos " + this.name;
+			}
+			else
+			{
+				if(pAnimal.getClass().equals(this.animals.get(0).getClass()))
+				{
+					this.animals.add(pAnimal);
+					vRet = pAnimal.getName() + " ajouté à l'enclos " + this.name;
+				}
+				else
+				{
+					vRet = "Cet enclos contient déjà une autre espèce d'animal";
+				}
+			}
+
 		}
 		return vRet;
 	}
@@ -45,12 +61,29 @@ public class Enclosure
 		return vRet;
 	}
 	
+	public String FeedAnimals()
+	{
+		String vRet = "";
+		
+		for(Animal pAni : this.animals)
+		{
+			if(pAni.isHungerIndicator())
+			{
+				pAni.setHungerIndicator(false);
+				vRet += pAni.getName() + " a été nourri, ";
+			}
+			else
+				vRet = "Aucun animal de cet enclos n'a faim";
+		}
+		return vRet;
+	}
+	
 	//Fonction permettant d'entretenir l'enclos
 	public boolean BeCleanable()
 	{
 		boolean vRet = false;
 		
-		if(!"Bon".equals(this.clean))
+		if((!"Bon".equals(this.clean)) && (this.isEmpty()))
 			vRet = true;
 
 		return vRet;
@@ -76,14 +109,26 @@ public class Enclosure
 		return vRet;
 	}
 	
+	public boolean isEmpty()
+	{
+		return this.animals.isEmpty();
+	}
+	
 	/* Constructeurs */
+	
+	public Enclosure(String name, int area, int ani_max, String clean) 
+	{
+		this.name = name;
+		this.area = area;
+		this.ani_max = ani_max;
+		this.clean = clean;
+	}
 	
 	public Enclosure(String name, int area, int ani_max) 
 	{
 		this.name = name;
 		this.area = area;
 		this.ani_max = ani_max;
-		this.clean = "Mauvais";
 	}
 
 	/* Accesseurs */

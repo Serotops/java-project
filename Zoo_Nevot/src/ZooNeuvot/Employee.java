@@ -30,7 +30,7 @@ public class Employee
 	
 	public String CleanEnclosure(Enclosure pEnclos)
 	{
-		String vRet = "Enclos deja propre";
+		String vRet = "Enclos deja propre ou non vide";
 		
 		if(pEnclos.BeCleanable())
 		{
@@ -75,6 +75,19 @@ public class Employee
 	public String TransferAnimal(Enclosure pEnclosOrigin, Enclosure pNextEnclos, Animal pAnimal)
 	{
 		String vRet = "";
+		
+		if(pEnclosOrigin.BeCleanable())
+		{
+			if(pEnclosOrigin.getAnimals().getClass().equals(pNextEnclos.getAnimals().getClass()))
+			{
+				
+			}
+		}
+		else
+		{
+			vRet = "L'enclos est deja propre ou n'est pas vide";
+		}
+		
 		return vRet;
 	}
 	
