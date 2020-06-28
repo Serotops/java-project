@@ -14,13 +14,13 @@ public class Shark extends Marine implements Other
 		super(name, sex, weight, size);
 	}
 
-	public String GiveBirth()
+	public String LayEgg()
 	{
-		String vRet = "Cet animal ne peut pas mettre bas";
+		String vRet = "Cet animal ne peut pas pondre";
 		
 		if(this.CanLayEgg(this))
 		{
-			vRet = "Un nouvel animal de l'espèce : " + this.getName() + " est né(e) ! ";
+			vRet = "Un nouveau requin est né(e) ! ";
 			Shark BabyShark = new Shark("Requin", this.RandomSex(), this.RandomWeight(), this.RandomSize());
 		}
 		return vRet;

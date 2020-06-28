@@ -20,7 +20,7 @@ public class Whale extends Marine implements Mammifere
 		
 		if(this.CanGiveBirth(this))
 		{
-			vRet = "Un nouvel animal de l'espèce : " + this.getName() + " est né(e) ! ";
+			vRet = "Une nouvelle baleine est né(e) ! ";
 			Whale BabyWhale = new Whale("Baleine", this.RandomSex(), this.RandomWeight(), this.RandomSize());
 		}
 		return vRet;

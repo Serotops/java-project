@@ -14,13 +14,13 @@ public class Penguin extends Fly implements Other
 		super(name, sex, weight, size);
 	}
 
-	public String GiveBirth()
+	public String LayEgg()
 	{
-		String vRet = "Cet animal ne peut pas mettre bas";
+		String vRet = "Cet animal ne peut pas pondre";
 		
 		if(this.CanLayEgg(this))
 		{
-			vRet = "Un nouvel animal de l'espèce : " + this.getName() + " est né(e) ! ";
+			vRet = "Un nouveau pingouin est né(e) ! ";
 			Penguin BabyPenguin = new Penguin("Pingouin", this.RandomSex(), this.RandomWeight(), this.RandomSize());
 		}
 		return vRet;

@@ -20,7 +20,7 @@ public class Tiger extends Land implements Mammifere
 		
 		if(this.CanGiveBirth(this))
 		{
-			vRet = "Un nouvel animal de l'espèce : " + this.getName() + " est né(e) ! ";
+			vRet = "Un nouveau tigre est né(e) ! ";
 			Tiger BabyTiger = new Tiger("Tigre", this.RandomSex(), this.RandomWeight(), this.RandomSize());
 		}
 		return vRet;

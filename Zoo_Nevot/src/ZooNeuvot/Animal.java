@@ -24,7 +24,7 @@ public abstract class Animal
 		this.age = age;
 		this.hungerIndicator = true;
 		this.sleepingIndicator = false;
-		this.healthIndicator = false;
+		this.healthIndicator = true;
 	}
 	
 	public Animal(String name, String sex, double weight, double size) 

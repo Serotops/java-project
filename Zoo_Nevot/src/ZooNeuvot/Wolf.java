@@ -20,7 +20,7 @@ public class Wolf extends Land implements Mammifere
 		
 		if(this.CanGiveBirth(this))
 		{
-			vRet = "Un nouvel animal de l'espèce : " + this.getName() + " est né(e) ! ";
+			vRet = "Un nouveau loup est né(e) ! ";
 			Wolf BabyWolf = new Wolf("Loup", this.RandomSex(), this.RandomWeight(), this.RandomSize());
 		}
 		return vRet;

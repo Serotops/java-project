@@ -20,7 +20,7 @@ public class Bear extends Land implements Mammifere
 		
 		if(this.CanGiveBirth(this))
 		{
-			vRet = "Un nouvel animal de l'espèce : " + this.getName() + " est né(e) ! ";
+			vRet = "Un nouvel ours est né(e) ! ";
 			Bear BabyBear = new Bear("Ours", this.RandomSex(), this.RandomWeight(), this.RandomSize());
 		}
 		return vRet;
